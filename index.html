@@ -28,7 +28,11 @@
       <label for="extras">Cuota extra:</label>
       <input type="number" name="extras" id="extras">
       <p>Resta:</p>
-      <output id="rest"></output>
+      <div>
+        <output id="rest"></output>
+        <p>/ 24 =</p>
+      <output id="semifinal_cuote"></output>
+      </div>
       <p>Cuota final:</p>
       <output id="final_cuote"></output> 
       <button type="button">Calcular</button>
@@ -40,6 +44,7 @@
     const initial_payInput = document.querySelector('#initial_pay');
     const extrasInput = document.querySelector('#extras');
     const restOutput = document.querySelector('#rest');
+    const semifinal_cuoteOutput = document.querySelector('#semifinal_cuote');
     const final_cuoteOutput = document.querySelector('#final_cuote');
     const calculateButton = document.querySelector('button');
 
@@ -55,10 +60,11 @@
         }
 
         const rest = alarm_price - initial_pay;
+        const semifinal_cuote = rest / 24;
         const final_cuote = (rest / 24) + kit + extras;
-
         restOutput.textContent = rest.toFixed(2);
-        final_cuoteOutput.textContent = final_cuote.toFixed(2);
+        semifinal_cuoteOutput.textContent = semifinal_cuote.toFixed(3);
+        final_cuoteOutput.textContent = final_cuote.toFixed(3);
       });
   </script>
 </body>
