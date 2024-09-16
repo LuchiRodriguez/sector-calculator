@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Sector Calculator</title>
+</head>
+<body>
+  <header>
+    <img src="./logo.svg" alt="">
+  </header>
+  <main>
+    <form action="#">
+      <label for="alarm_price">Valor de equipo:</label>
+      <input type="number" name="alarm_price" id="alarm_price" required> 
+      <label for="kit">Tipo de kit:</label>
+      <select name="kit" id="kit">
+        <option value="39.90">PROTECCIÓN</option>
+        <option value="44.90">PLUS</option>
+      </select>
+      <label for="initial_pay">Pago inicial:</label>
+      <input type="number" name="initial_pay" id="initial_pay" required>
+      <label for="extras">Cuota extra:</label>
+      <input type="number" name="extras" id="extras">
+      <p>Resta:</p>
+      <output id="rest"></output>
+      <p>Cuota final:</p>
+      <output id="final_cuote"></output> 
+      <button type="button">Calcular</button>
+    </form>
+  </main>
+  <script>
+    const alarm_priceInput = document.querySelector('#alarm_price');
+    const kitSelect = document.querySelector('#kit');
+    const initial_payInput = document.querySelector('#initial_pay');
+    const extrasInput = document.querySelector('#extras');
+    const restOutput = document.querySelector('#rest');
+    const final_cuoteOutput = document.querySelector('#final_cuote');
+    const calculateButton = document.querySelector('button');
+
+      calculateButton.addEventListener('click', () => {
+        const alarm_price = parseFloat(alarm_priceInput.value);
+        const kit = parseFloat(kitSelect.value);
+        const initial_pay = parseFloat(initial_payInput.value);
+        const extras = parseFloat(extrasInput.value);
+
+        if (isNaN(alarm_price) || isNaN(kit) || isNaN(initial_pay)) {
+          alert('Por favor, ingresa valores numéricos válidos.');
+          return;
+        }
+
+        const rest = alarm_price - initial_pay;
+        const final_cuote = (rest / 24) + kit + extras;
+
+        restOutput.textContent = rest.toFixed(2);
+        final_cuoteOutput.textContent = final_cuote.toFixed(2);
+      });
+  </script>
+</body>
+</html>

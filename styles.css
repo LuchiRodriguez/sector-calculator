@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  background-color: #1d1d1b;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+img{
+  margin: 10px 20px;
+}
+form{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: auto;
+}
+
+input{
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+select{
+  border: 1px solid white;
+    border-radius: 10px;
+  padding: 10px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+button{
+  border: none;
+  background-color: #e4464e;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+output{
+  height: 20px;
+}
